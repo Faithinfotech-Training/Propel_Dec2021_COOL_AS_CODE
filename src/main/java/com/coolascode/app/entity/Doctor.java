@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="doctor")
 public class Doctor {
@@ -78,6 +80,7 @@ public class Doctor {
 		this.staffId = staffId;
 	}
 
+	@JsonBackReference
 	public Staff getStaff() {
 		return staff;
 	}
@@ -98,6 +101,7 @@ public class Doctor {
 		return department;
 	}
 
+	@JsonBackReference
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
@@ -110,6 +114,7 @@ public class Doctor {
 		this.specializationId = specializationId;
 	}
 
+	@JsonBackReference
 	public Specialization getSpecialization() {
 		return specialization;
 	}

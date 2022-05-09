@@ -117,7 +117,9 @@ public class Prescription {
 	}
 
 
+
 	@JsonManagedReference
+
 	public List<MedicinePrescription> getMedicineprescription() {
 		return medicineprescription;
 	}

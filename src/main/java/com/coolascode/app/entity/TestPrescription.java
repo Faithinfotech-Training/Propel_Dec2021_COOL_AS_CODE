@@ -43,9 +43,10 @@ public class TestPrescription {
 
 	@Column(name="modified_date")
 	private Date modifiedDate;
-	
+
 	@Column(name="status", columnDefinition = "TINYINT", length = 1)
 	private boolean status;
+
 
 	public TestPrescription() {
 		super();
@@ -53,7 +54,11 @@ public class TestPrescription {
 	}
 
 	public TestPrescription(int testprescriptionId, int prescriptionId, Prescription prescription, int testId,
+
+			Labtest labtest, Date createdDate, Date modifiedDate) {
+
 			Labtest labtest, Date createdDate, Date modifiedDate, boolean status) {
+
 		super();
 		this.testprescriptionId = testprescriptionId;
 		this.prescriptionId = prescriptionId;
@@ -62,7 +67,9 @@ public class TestPrescription {
 		this.labtest = labtest;
 		this.createdDate = createdDate;
 		this.modifiedDate = modifiedDate;
+
 		this.status = status;
+
 	}
 
 	public int getTestprescriptionId() {
@@ -81,7 +88,9 @@ public class TestPrescription {
 		this.prescriptionId = prescriptionId;
 	}
 
+
 	@JsonBackReference
+
 	public Prescription getPrescription() {
 		return prescription;
 	}
@@ -134,8 +143,13 @@ public class TestPrescription {
 	public String toString() {
 		return "TestPrescription [testprescriptionId=" + testprescriptionId + ", prescriptionId=" + prescriptionId
 				+ ", prescription=" + prescription + ", testId=" + testId + ", labtest=" + labtest + ", createdDate="
+
+				+ createdDate + ", modifiedDate=" + modifiedDate + "]";
+	}
+
 				+ createdDate + ", modifiedDate=" + modifiedDate + ", status=" + status + "]";
 	}
+
 
 	
 	

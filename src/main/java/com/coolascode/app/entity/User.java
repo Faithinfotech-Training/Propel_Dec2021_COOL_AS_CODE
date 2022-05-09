@@ -11,6 +11,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 @Entity
 @Table(name="user")
 public class User {
@@ -20,7 +23,6 @@ public class User {
 	@Column(name="user_id")
 	private int userId;
 
-	
 	@Column(name="user_name",nullable=false,length=20)
 	private String userName;
 	
@@ -102,6 +104,8 @@ public class User {
 		this.roleId = roleId;
 	}
 
+	@JsonBackReference
+
 	public Role getRole() {
 		return role;
 	}
@@ -117,6 +121,9 @@ public class User {
 	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
+
+	
+	@JsonBackReference
 
 	public Staff getStaff() {
 		return staff;

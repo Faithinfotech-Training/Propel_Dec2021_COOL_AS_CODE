@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="specialization")
 public class Specialization {
@@ -66,6 +69,9 @@ public class Specialization {
 	public void setDepartmentId(int departmentId) {
 		this.departmentId = departmentId;
 	}
+
+
+	@JsonBackReference
 
 	public Department getDepartment() {
 		return department;
