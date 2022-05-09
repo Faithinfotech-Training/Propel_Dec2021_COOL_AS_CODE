@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="prescription")
 public class Prescription {
@@ -115,6 +117,8 @@ public class Prescription {
 	}
 
 
+
+	@JsonManagedReference
 
 	public List<MedicinePrescription> getMedicineprescription() {
 		return medicineprescription;

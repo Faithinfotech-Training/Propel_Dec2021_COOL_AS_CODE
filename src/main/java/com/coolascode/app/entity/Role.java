@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
@@ -54,8 +55,9 @@ public class Role {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	
+
 	@JsonBackReference
+
 	public List<User> getUser() {
 		return user;
 	}

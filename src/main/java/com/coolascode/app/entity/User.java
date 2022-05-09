@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
@@ -104,6 +105,7 @@ public class User {
 	}
 
 	@JsonBackReference
+
 	public Role getRole() {
 		return role;
 	}
@@ -119,8 +121,10 @@ public class User {
 	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
+
 	
 	@JsonBackReference
+
 	public Staff getStaff() {
 		return staff;
 	}

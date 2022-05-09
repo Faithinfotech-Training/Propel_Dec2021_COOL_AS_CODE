@@ -12,6 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
+
 @Entity
 @Table(name="note")
 public class Note {
@@ -77,6 +81,8 @@ public class Note {
 	public void setPrescriptionId(int prescriptionId) {
 		this.prescriptionId = prescriptionId;
 	}
+
+	@JsonBackReference
 
 	public Prescription getPrescription() {
 		return prescription;

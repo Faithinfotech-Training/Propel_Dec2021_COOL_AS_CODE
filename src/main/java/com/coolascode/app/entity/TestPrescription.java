@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="testprescription")
 public class TestPrescription {
@@ -42,13 +44,21 @@ public class TestPrescription {
 	@Column(name="modified_date")
 	private Date modifiedDate;
 
+	@Column(name="status", columnDefinition = "TINYINT", length = 1)
+	private boolean status;
+
+
 	public TestPrescription() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public TestPrescription(int testprescriptionId, int prescriptionId, Prescription prescription, int testId,
+
 			Labtest labtest, Date createdDate, Date modifiedDate) {
+
+			Labtest labtest, Date createdDate, Date modifiedDate, boolean status) {
+
 		super();
 		this.testprescriptionId = testprescriptionId;
 		this.prescriptionId = prescriptionId;
@@ -57,6 +67,9 @@ public class TestPrescription {
 		this.labtest = labtest;
 		this.createdDate = createdDate;
 		this.modifiedDate = modifiedDate;
+
+		this.status = status;
+
 	}
 
 	public int getTestprescriptionId() {
@@ -74,6 +87,9 @@ public class TestPrescription {
 	public void setPrescriptionId(int prescriptionId) {
 		this.prescriptionId = prescriptionId;
 	}
+
+
+	@JsonBackReference
 
 	public Prescription getPrescription() {
 		return prescription;
@@ -115,12 +131,26 @@ public class TestPrescription {
 		this.modifiedDate = modifiedDate;
 	}
 
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "TestPrescription [testprescriptionId=" + testprescriptionId + ", prescriptionId=" + prescriptionId
 				+ ", prescription=" + prescription + ", testId=" + testId + ", labtest=" + labtest + ", createdDate="
+
 				+ createdDate + ", modifiedDate=" + modifiedDate + "]";
 	}
+
+				+ createdDate + ", modifiedDate=" + modifiedDate + ", status=" + status + "]";
+	}
+
+
 	
 	
 	

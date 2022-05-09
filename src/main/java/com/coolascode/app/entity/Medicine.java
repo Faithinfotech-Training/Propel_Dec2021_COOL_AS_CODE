@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 @Entity
 @Table(name="medicine")
 public class Medicine {
@@ -153,6 +157,9 @@ public class Medicine {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+
+
+	@JsonBackReference
 
 	public MedicinePrescription getMedicineprescription() {
 		return medicineprescription;
